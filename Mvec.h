@@ -20,6 +20,7 @@ Mvec *mvec_alloc(Mvec *mvec, size_t cap)
     mvec->capacity = cap;
     void *ptr = mvec->things;
     mvec->things = memcpy(malloc(mvec->sizeof_element * cap), ptr, mvec->len * mvec->sizeof_element);
+    free(ptr);
     return mvec;
 }
 
